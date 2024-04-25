@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "e5997c9c-df41-4c2d-b8c3-220ea98481bd",
+		"name": "SavantApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8665186"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"santi7\",\r\n    \"cellphone\": \"+57 305 7349486\",\r\n    \"email\": \"santi7@gmail.com\",\r\n    \"password\": \"test1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDA3NDI2NCwianRpIjoiMDg5YWQ1ZjAtNTUzMS00YTVhLWFmMTUtNzdkY2E5ZDVmNDA2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwZmFjZGY4LTQ2NTUtNGYyZS05NmE0LTRhNmJhN2NjMzlkZSIsIm5iZiI6MTcxNDA3NDI2NCwiY3NyZiI6ImY0MjA2ZWZiLTMyNzYtNDY4Ny04YTE5LTRhN2E4YWViY2QwNCIsImV4cCI6MTcxNDA3NTE2NH0.ARgECBeX1S5wTQxJAIe0fi793kBtqJswg8ATmFc5nVk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/users/:user_id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "10facdf8-4655-4f2e-96a4-4a6ba7cc39de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user by id",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDA3NDI2NCwianRpIjoiMDg5YWQ1ZjAtNTUzMS00YTVhLWFmMTUtNzdkY2E5ZDVmNDA2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwZmFjZGY4LTQ2NTUtNGYyZS05NmE0LTRhNmJhN2NjMzlkZSIsIm5iZiI6MTcxNDA3NDI2NCwiY3NyZiI6ImY0MjA2ZWZiLTMyNzYtNDY4Ny04YTE5LTRhN2E4YWViY2QwNCIsImV4cCI6MTcxNDA3NTE2NH0.ARgECBeX1S5wTQxJAIe0fi793kBtqJswg8ATmFc5nVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\":\"name updated 3\",\r\n    \"email\":\"emailpdated3@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/users/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10facdf8-4655-4f2e-96a4-4a6ba7cc39de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove user by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDA3NDI2NCwianRpIjoiMDg5YWQ1ZjAtNTUzMS00YTVhLWFmMTUtNzdkY2E5ZDVmNDA2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwZmFjZGY4LTQ2NTUtNGYyZS05NmE0LTRhNmJhN2NjMzlkZSIsIm5iZiI6MTcxNDA3NDI2NCwiY3NyZiI6ImY0MjA2ZWZiLTMyNzYtNDY4Ny04YTE5LTRhN2E4YWViY2QwNCIsImV4cCI6MTcxNDA3NTE2NH0.ARgECBeX1S5wTQxJAIe0fi793kBtqJswg8ATmFc5nVk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/users/:user_id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "10facdf8-4655-4f2e-96a4-4a6ba7cc39de"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
