@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: Savant API
+  version: "1.0"
+  description: Rest API for Savant
+paths:
+  /users/:
+    get:
+      summary: List all users
+      operationId: get_user_list
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+    post:
+      summary: Create a new user
+      operationId: create_user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+  /users/{user_id}:
+    get:
+      summary: Fetch a user by ID
+      operationId: get_user
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: The user identifier
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: User not found
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The user ID
+        full_name:
+          type: string
+          description: The user full name
+        email:
+          type: string
+          description: The user email
+        cellphone:
+          type: string
+          description: The user cellphone
+      required:
+        - id
+        - full_name
+        - email
+        - cellphone
