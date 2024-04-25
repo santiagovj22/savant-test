@@ -11,7 +11,7 @@ from config.settings import DATABASE_URL, JWT_SECRET_KEY
 
 from controllers.auth_controller import init_auth_controller
 from controllers.user_controller import init_user_controller
-#from utils.auth import configure_jwt
+
 
 # Init flask app
 app = Flask(__name__)

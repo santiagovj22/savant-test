@@ -4,19 +4,7 @@ info:
   version: "1.0"
   description: Rest API for Savant
 paths:
-  /users/:
-    get:
-      summary: List all users
-      operationId: get_user_list
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/User"
+  /api/auth/login:
     post:
       summary: Create a new user
       operationId: create_user
@@ -32,8 +20,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
-  /users/{user_id}:
+                $ref: "#/components/schemas/Token"
+  /api/users/:
+    get:
+      summary: Get all users
+      operationId: get_users
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+  
+  /api/users/{user_id}:
     get:
       summary: Fetch a user by ID
       operationId: get_user
@@ -44,6 +46,12 @@ paths:
           description: The user identifier
           schema:
             type: string
+        - name: Authorization Bearer
+          in: header
+          required: true
+          description: The user token
+          schema:
+            type: string
       responses:
         "200":
           description: successful operation
@@ -51,6 +59,58 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
+        "404":
+          description: User not found
+
+    patch:
+      summary: Fetch a user by ID
+      operationId: update_user
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: The user identifier
+          schema:
+            type: string
+        - name: Authorization Bearer
+          in: header
+          required: true
+          description: The user token
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+        "404":
+          description: User not found
+    
+    delete:
+      summary: Remove a user by ID
+      operationId: remove_user
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: The user identifier
+          schema:
+            type: string
+        - name: Authorization Bearer
+          in: header
+          required: true
+          description: The user token
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
         "404":
           description: User not found
 components:
@@ -70,8 +130,28 @@ components:
         cellphone:
           type: string
           description: The user cellphone
+        password:
+          type: string
+          description: The user password
       required:
         - id
         - full_name
         - email
+        - password
         - cellphone
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+          description: The user token
+      required:
+        - token
+    Message:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message
+      required:
+        - message
