@@ -9,7 +9,7 @@ Welcome to the API documentation for Savant. This API provides a CRUD operation 
 ## Getting Started
 To get started with this API, follow the steps below:
 
-1. Clone the repository: `git clone `
+1. Clone the repository: `git clone https://github.com/santiagovj22/savant-test`
 2. Create environment:  `pip install pipenv`
 3. Install the dependencies: `pipenv install`
 4. Run setup folder docker-compose.postgres.yml
