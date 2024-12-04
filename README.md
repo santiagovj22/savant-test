@@ -1,7 +1,7 @@
 # API Documentation
 By Santiago Valle
 ## Introduction
-Welcome to the API documentation for Savant. This API provides a CRUD operation for users with authentication and authorization.
+Welcome to the API documentation for Savant proposal. This API provides a CRUD operation for users with authentication and authorization.
 ## Requirements ##
 - docker
 - python 3.12
